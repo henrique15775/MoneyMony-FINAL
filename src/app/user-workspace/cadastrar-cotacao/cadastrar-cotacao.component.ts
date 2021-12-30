@@ -45,7 +45,7 @@ export class CadastrarCotacaoComponent implements OnInit {
     if (!this.cotacao.id && this.cadastroFlag ==true ) {
       console.log(this.cotacao.urlMoeda);
       this.httpClient.get<any>(`https://economia.awesomeapi.com.br/json/last/${this.cotacao.urlMoeda}`).subscribe(res => {
-        if(res != undefined || res != null){
+
         var separe = this.cotacao.urlMoeda.split('-');
         var str = separe[0].concat("",separe[1]);
 
@@ -56,26 +56,24 @@ export class CadastrarCotacaoComponent implements OnInit {
         this.cotacao.createDate = res[str].create_date;
 
         this.cotacao.codein = res[str].codein;
-
+        console.log(this.cotacao.code)
         this.cotacao.pctChange = res[str].pctChange;
+        if(this.cotacao.code != null){
+          const  new_cotacao = this.cotacao;
+          console.log(new_cotacao.bid);
+          this.cadastroService.inserir(new_cotacao).subscribe(
+            cotacaoInserido => {
+              this.mensagemService.success("Cotacao inserida com sucesso!");
+              console.log(cotacaoInserido);
 
-      }else{
-        this.mensagemService.error(`${this.cotacao.urlMoeda} Não existe!`);
-        this.cotacao.urlMoeda = '';
-      }
+            }
+          );
+          }else{
+            this.mensagemService.error("Essa cotacao não existe!");
+          }
+
       });
-      if(this.cotacao.urlMoeda != ''){
-      const  new_cotacao = this.cotacao;
-      console.log(new_cotacao.bid);
-      this.cadastroService.inserir(new_cotacao).subscribe(
-        cotacaoInserido => {
-          this.mensagemService.success("Cotacao inserida com sucesso!");
-          console.log(cotacaoInserido);
-
-        }
-      );
-      }
-   }else{
+     }else{
       this.aviso = `${this.cotacao.urlMoeda} já cadastrado!`
       this.mensagemService.warning(this.aviso);
     this.cadastroFlag = true;
