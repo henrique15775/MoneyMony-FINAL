@@ -1,0 +1,8 @@
+<div class="menu-background">
+  <button mat-button  [matMenuTriggerFor]="menu">Menu</button>
+  <h3>MoneyMony</h3>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item [routerLink]="['/cadastrarcotacao']">Inserir Cotação</button>
+    <button mat-menu-item [routerLink]="['/viewcotacao']">Listar Cotações</button>
+  </mat-menu>
+</div>

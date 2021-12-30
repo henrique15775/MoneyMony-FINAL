@@ -1,0 +1,32 @@
+{
+  "moedas": [
+    {
+      "id": 1,
+      "url_moeda": "BRL-USD"
+    },
+    {
+      "id": 2,
+      "url_moeda": "USD-EUR"
+    },
+    {
+      "url_moeda": "BTC-USD",
+      "id": 3
+    },
+    {
+      "url_moeda": "BTC-BRL",
+      "id": 4
+    },
+    {
+      "url_moeda": "USD-BRL",
+      "id": 5
+    },
+    {
+      "url_moeda": "BTC-ARS",
+      "id": 6
+    },
+    {
+      "id": 7
+    }
+  ],
+  "mensagens": []
+}

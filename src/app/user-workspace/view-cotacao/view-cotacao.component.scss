@@ -1,0 +1,30 @@
+/**/
+mat-card{
+  width:175px;
+  height:175px;
+  margin-top: 0.25rem;
+
+}
+
+body{
+  background-color:black;
+}
+
+.view_body{
+  width:100%;
+  background-color: black;
+  height:100%;
+  color:white;
+  button{
+    text-align: center;
+  }
+}
+
+.dive{
+  background-color: black;
+
+  display:flex;
+  flex-direction:row;
+
+  flex-wrap: wrap;
+}
